@@ -38,10 +38,11 @@
       }
 
       .hero-banner p {
-        margin: 0;
+        margin: 0 auto;
         max-width: 760px;
         line-height: 1.75;
         opacity: 0.92;
+        text-align: center;
       }
 
       .hero-actions {
@@ -49,6 +50,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
+        justify-content: center;
       }
 
       .hero-actions .button {
@@ -131,13 +133,40 @@
         margin-top: 16px;
       }
 
+      .level-select {
+        width: min(100%, 280px);
+        padding: 12px 14px;
+        border: 1px solid #e5d9cf;
+        border-radius: 999px;
+        font-size: 1rem;
+        color: #23304a;
+        background: var(--surface-soft);
+        appearance: none;
+        background-image: linear-gradient(45deg, transparent 50%, #8a4b3a 50%), linear-gradient(135deg, #8a4b3a 50%, transparent 50%);
+        background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 14px) calc(1em + 2px);
+        background-size: 6px 6px, 6px 6px;
+        background-repeat: no-repeat;
+        padding-right: 38px;
+      }
+
+      .level-select:focus {
+        outline: 2px solid rgba(211, 47, 47, 0.2);
+        border-color: #d32f2f;
+      }
+
       .note-card {
         grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
         background: #fff7f1;
         color: var(--text-muted);
         border-color: #f4d6c6;
         box-shadow: none;
         font-size: 0.97rem;
+        text-align: center;
+        padding: 0 16px;
       }
 
       .ad-section {
@@ -177,8 +206,12 @@
     <main class="container">
       <section class="card-section" id="levels-section">
         <h2 id="levels">Pick a level</h2>
-        <div class="cards" id="levels"></div>
-        <div class="card note-card">Tap a level to reveal its lesson pages. Use the sample link above to open the polished HSK1 Lesson 1 page.</div>
+        <label for="level-select">Select an HSK level</label>
+        <select id="level-select" class="level-select" aria-label="Select an HSK level">
+          <option value="">Choose an HSK level</option>
+        </select>
+        <div style="height: 30px;"></div>
+        <div class="note-card" style="text-align: center; height: 50px; ">Choose a level from the dropdown to reveal its lesson pages. </div>
       </section>
 
       <section class="card-section">
@@ -205,64 +238,39 @@
     </footer>
 
     <script>
-      const levelsEl = document.getElementById('levels')
+      const levelSelect = document.getElementById('level-select')
       const lessonsEl = document.getElementById('lessons')
 
       for (let l = 1; l <= 6; l++) {
-        const wrapper = document.createElement('div')
-        wrapper.style.position = 'relative'
-
-        const cb = document.createElement('input')
-        cb.type = 'checkbox'
-        cb.id = `level-${l}`
-        cb.dataset.level = l
-        cb.style.display = 'none'
-
-        const label = document.createElement('label')
-        label.className = 'card'
-        label.htmlFor = cb.id
-        label.innerHTML = `<strong>HSK${l}</strong><span class="meta">Level ${l} lessons</span>`
-
-        cb.addEventListener('change', (e) => {
-          const level = e.target.dataset.level
-          const activeLabel = levelsEl.querySelector(`label[for="level-${level}"]`)
-
-          if (e.target.checked) {
-            const others = levelsEl.querySelectorAll('input[type="checkbox"]')
-            others.forEach((o) => {
-              if (o !== e.target && o.checked) {
-                o.checked = false
-                const existing = lessonsEl.querySelector(`.lesson-group[data-level="${o.dataset.level}"]`)
-                if (existing) existing.remove()
-              }
-            })
-            levelsEl.querySelectorAll('label.card').forEach((item) => item.classList.remove('selected'))
-
-            const group = document.createElement('div')
-            group.className = 'lesson-group'
-            group.dataset.level = level
-
-            for (let i = 1; i <= 20; i++) {
-              const a = document.createElement('a')
-              a.className = 'card'
-              a.textContent = `HSK${level} — Lesson ${i}`
-              a.href = `hsk${level}/lesson${i}/index.html`
-              group.appendChild(a)
-            }
-            lessonsEl.innerHTML = ''
-            lessonsEl.appendChild(group)
-            activeLabel.classList.add('selected')
-          } else {
-            const existing = lessonsEl.querySelector(`.lesson-group[data-level="${level}"]`)
-            if (existing) existing.remove()
-            if (activeLabel) activeLabel.classList.remove('selected')
-          }
-        })
-
-        wrapper.appendChild(cb)
-        wrapper.appendChild(label)
-        levelsEl.appendChild(wrapper)
+        const option = document.createElement('option')
+        option.value = l
+        option.textContent = `HSK ${l}`
+        levelSelect.appendChild(option)
       }
+
+      levelSelect.addEventListener('change', (e) => {
+        const level = e.target.value
+
+        if (!level) {
+          lessonsEl.innerHTML = ''
+          return
+        }
+
+        const group = document.createElement('div')
+        group.className = 'lesson-group'
+        group.dataset.level = level
+
+        for (let i = 1; i <= 20; i++) {
+          const a = document.createElement('a')
+          a.className = 'card'
+          a.textContent = `HSK${level} — Lesson ${i}`
+          a.href = `hsk${level}/lesson${i}/index.html`
+          group.appendChild(a)
+        }
+
+        lessonsEl.innerHTML = ''
+        lessonsEl.appendChild(group)
+      })
     </script>
   </body>
 </html>
