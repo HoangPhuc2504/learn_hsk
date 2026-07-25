@@ -1,22 +1,27 @@
-# HSK Learning — HSK1 Lesson 1
+# HSK Learning — HSK 3.0
 
-This is a minimal static site for studying HSK1 Lesson 1.
+This project is designed to help you learn HSK 3.0 from Level 1 through Level 6.
 
-Files created:
+Use the site to explore lessons, review vocabulary, and practice reading and listening skills as you progress through the HSK 3.0 levels.
 
-- `index.html` — main lesson page
-- `css/styles.css` — styles
-- `js/main.js` — flashcards and quiz logic
+Resources included:
 
-- `index.html` — root selector page (choose HSK level and lesson)
-- `hsk1/lesson1/index.html` — HSK1 Lesson 1 (moved from root)
-- `css/styles.css` — styles
-- `js/main.js` — flashcards and quiz logic
+- `index.html` — main lesson and level selector
+- `css/styles.css` — site styling
+- `js/main.js` — interactive flashcards and quiz logic
 
-To view HSK1 Lesson 1 open `hsk1/lesson1/index.html` in your browser, or open `index.html` and click HSK1 → Lesson 1. No server required.
+How to use:
+
+- Open `index.html` in your browser
+- Choose the HSK level and lesson you want to study
+- Progress from Level 1 up to Level 6
+
+Learn more and access the full HSK 3.0 study platform at:
+
+https://learn-hsk-3-0.onrender.com/
 
 Next steps you might want:
 
 - Add audio for pronunciation
-- Add more lessons (HSK1 lesson 2, etc.)
+- Add more lessons for each HSK level
 - Improve styling or add spaced-repetition review
