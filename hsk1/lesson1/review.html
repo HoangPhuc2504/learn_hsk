@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1 Chinese Review & Quiz</title>
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --dark-red: #b71c1c;
+            --bg-light: #fbf9f5;
+            --card-bg: #ffffff;
+            --peach-bg: #fff3e0;
+            --peach-border: #ffe0b2;
+            --text-dark: #2c3e50;
+            --border-color: #e0e0e0;
+            --correct-green: #2e7d32;
+            --correct-bg: #e8f5e9;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Top Banner */
+        .lesson-banner {
+            display: flex;
+            background-color: var(--primary-red);
+            color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .lesson-number-box {
+            background-color: white;
+            color: var(--primary-red);
+            padding: 15px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .lesson-tag {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .lesson-num {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-top: 5px;
+        }
+
+        .lesson-title-box {
+            padding: 15px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .lesson-title-pinyin {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .lesson-title-zh {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .lesson-title-en {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Section Container */
+        .review-section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Ruby Pinyin Styling */
+        ruby {
+            ruby-position: over;
+        }
+
+        rt {
+            font-size: 0.8rem;
+            font-weight: normal;
+            color: #555;
+        }
+
+        /* Dialogue Box */
+        .dialogue-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .avatar-box {
+            text-align: center;
+            margin-right: 12px;
+            width: 75px;
+            flex-shrink: 0;
+        }
+
+        .speaker-name {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #333;
+            display: block;
+        }
+
+        .speech-bubble {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 8px 14px;
+            flex: 1;
+            font-size: 1.2rem;
+        }
+
+        /* Vocab Table */
+        .vocab-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .vocab-table th, .vocab-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .vocab-table th {
+            background-color: var(--peach-bg);
+            color: var(--dark-red);
+        }
+
+        /* Quiz Styling */
+        .quiz-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .question-title {
+            font-weight: bold;
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            color: var(--dark-red);
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .option-item {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            background-color: #fafafa;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-item:hover {
+            background-color: #f0f0f0;
+            border-color: #bbb;
+        }
+
+        .option-item.correct {
+            background-color: var(--correct-bg);
+            border-color: var(--correct-green);
+            color: var(--text-dark);
+        }
+
+        .option-item.incorrect {
+            background-color: #ffebee;
+            border-color: #d32f2f;
+            color: #b71c1c;
+        }
+
+        .explanation.hidden { display: none; }
+
+        .feedback {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        .feedback.correct { color: var(--correct-green); }
+        .feedback.incorrect { color: var(--primary-red); }
+
+        .explanation {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: var(--correct-bg);
+            border-left: 4px solid var(--correct-green);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #1b5e20;
+        }
+
+        .tip-badge {
+            background-color: #ff9800;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="lesson-banner">
+        <div class="lesson-number-box">
+            <span class="lesson-tag">Lesson</span>
+            <span class="lesson-num">1</span>
+        </div>
+        <div class="lesson-title-box">
+            <div class="lesson-title-pinyin">AI Xiǎoyǔ, nǐ hǎo!</div>
+            <div class="lesson-title-zh">AI小语，你好！</div>
+            <div class="lesson-title-en">Hello, AI Xiaoyu! — Full Review & Quiz</div>
+        </div>
+    </div>
+
+    <!-- Review Quiz Section -->
+    <section class="review-section">
+        <div class="section-title">10-Question Review Quiz (复习测验)</div>
+
+        <!-- Q1 -->
+        <div class="quiz-card">
+            <div class="question-title">1. How do you say "Hello" in standard Chinese?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. 谢谢 (xièxie)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">B. 你好 (nǐ hǎo)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">C. 再见 (zàijiàn)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. 不客气 (bú kèqi)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: B. 你好 (nǐ hǎo).</strong> This is the standard greeting used for "Hello".</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-card">
+            <div class="question-title">2. What is the respectful / honorific form of "you" used when addressing elders or teachers?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. 大家 (dàjiā)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">B. 你们 (nǐmen)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">C. 您 (nín)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. 同学 (tóngxué)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: C. 您 (nín).</strong> "您" is used to show respect to elders or teachers instead of "你".</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-card">
+            <div class="question-title">3. Which suffix is added to personal pronouns or nouns to make them plural?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="true">A. 们 (men)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">B. 好 (hǎo)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">C. 师 (shī)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. 见 (jiàn)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: A. 们 (men).</strong> For example: 你 (you) -> 你们 (you all), 同学 (classmate) -> 同学们 (classmates).</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-card">
+            <div class="question-title">4. What does "大家" (dàjiā) mean?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. Teacher</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">B. Student</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">C. Everybody / Everyone</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. AI Assistant</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: C. Everybody / Everyone.</strong> "大家好" means "Hello everyone!".</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-card">
+            <div class="question-title">5. How should students address teacher "Ms. Wang" politely when greeting her?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. 王同学，你好！</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">B. 王老师，您好！</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">C. 小语，你好！</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. 大家，再见！</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: B. 王老师，您好！</strong> In Chinese, family name comes first (王) + title (老师), followed by respectful greeting (您好).</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-card">
+            <div class="question-title">6. What is the correct response when someone tells you "谢谢" (xièxie)?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. 你好 (nǐ hǎo)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">B. 再见 (zàijiàn)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">C. 不客气 (bú kèqi)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. 老师好 (lǎoshī hǎo)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: C. 不客气 (bú kèqi).</strong> "不客气" means "You're welcome".</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-card">
+            <div class="question-title">7. What does "再见" (zàijiàn) mean?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. Good morning</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">B. Goodbye</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">C. Thank you</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. Hello</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: B. Goodbye.</strong> Literally "again see" (see you again).</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-card">
+            <div class="question-title">8. What is the meaning of "同学" (tóngxué)?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. Teacher</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">B. AI Assistant</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">C. Classmate / Student</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. Everyone</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: C. Classmate / Student.</strong> Teachers often address students as "同学们" (students / class).</div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-card">
+            <div class="question-title">9. How do you say "you" in plural form (you all)?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. 您 (nín)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">B. 你们 (nǐmen)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">C. 老师 (lǎoshī)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. 大家 (dàjiā)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: B. 你们 (nǐmen).</strong> Combining "你" (you) + "们" (plural suffix) creates "你们" (you plural).</div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-card">
+            <div class="question-title">10. In Text 3, what does Teacher Wang Yifei say to bid farewell to her students?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. 大家好！</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">B. 不客气！</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">C. 同学们，再见！</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. 老师，您好！</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: C. 同学们，再见！</strong> ("Goodbye, class! / Goodbye, students!")</div>
+        </div>
+
+    </section>
+    <p style="display:flex; justify-content:space-between; align-items:center;">
+        <a class="btn" href="index.html">← Back to Lesson</a>
+        <a class="btn" href="../lesson2/index.html">Next Lesson →</a>
+    </p>
+    <script>
+        document.querySelectorAll('.quiz-card').forEach(card => {
+            const options = Array.from(card.querySelectorAll('.option-item'));
+            const explanation = card.querySelector('.explanation');
+            let answered = false;
+
+            function handleSelection(opt) {
+                if (answered) return;
+                answered = true;
+                const isCorrect = opt.dataset.correct === 'true';
+                if (isCorrect) {
+                    opt.classList.add('correct');
+                } else {
+                    opt.classList.add('incorrect');
+                    const corr = card.querySelector('.option-item[data-correct="true"]');
+                    if (corr) corr.classList.add('correct');
+                }
+                options.forEach(o => o.style.pointerEvents = 'none');
+                if (explanation) explanation.classList.remove('hidden');
+                const fb = document.createElement('div');
+                fb.className = 'feedback ' + (isCorrect ? 'correct' : 'incorrect');
+                fb.textContent = isCorrect ? 'Correct!' : 'Incorrect';
+                card.appendChild(fb);
+            }
+
+            options.forEach(opt => {
+                opt.addEventListener('click', () => handleSelection(opt));
+                opt.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleSelection(opt);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

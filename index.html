@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>HSK 3.0</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>HSK 3.0</h1>
+      <p class="subtitle">Choose a level and lesson (HSK1–HSK6)</p>
+    </header>
+
+    <main class="container">
+      <section class="card-section">
+        <h2>Select Level</h2>
+        <div id="levels" class="cards"></div>
+      </section>
+
+      <section class="card-section">
+        <h2>Lessons</h2>
+        <div id="lessons" class="cards"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Click a lesson to open it.</p>
+    </footer>
+
+    <script>
+      const levelsEl = document.getElementById('levels')
+      const lessonsEl = document.getElementById('lessons')
+
+      // create level checkboxes HSK1..HSK6; checking shows lessons, unchecking hides them
+      for(let l=1;l<=6;l++){
+        const wrapper = document.createElement('div')
+        wrapper.style.display = 'inline-block'
+        wrapper.style.position = 'relative'
+
+        const cb = document.createElement('input')
+        cb.type = 'checkbox'
+        cb.id = `level-${l}`
+        cb.dataset.level = l
+        cb.style.display = 'none'
+
+        const label = document.createElement('label')
+        label.className = 'card'
+        label.htmlFor = cb.id
+        label.textContent = 'HSK' + l
+
+        // toggle lessons group when checkbox changes
+        cb.addEventListener('change', (e)=>{
+          const level = e.target.dataset.level
+          // when checked, uncheck others and remove their groups
+          if(e.target.checked){
+            // uncheck other checkboxes and remove their groups
+            const others = levelsEl.querySelectorAll('input[type="checkbox"]')
+            others.forEach(o=>{
+              if(o !== e.target && o.checked){
+                o.checked = false
+                const existing = lessonsEl.querySelector(`.lesson-group[data-level="${o.dataset.level}"]`)
+                if(existing) existing.remove()
+              }
+            })
+            // remove selected class from all labels
+            levelsEl.querySelectorAll('label.card').forEach(l=>l.classList.remove('selected'))
+
+            const group = document.createElement('div')
+            group.className = 'lesson-group'
+            group.dataset.level = level
+            group.style.width = '100%'
+            group.style.display = 'flex'
+            group.style.flexWrap = 'wrap'
+            group.style.gap = '8px'
+
+            for(let i=1;i<=20;i++){
+              const a = document.createElement('a')
+              a.className = 'card'
+              a.textContent = `HSK${level} — Lesson ${i}`
+              a.href = (level==='1' && i===1) ? `hsk1/lesson1/index.html` : `hsk${level}/lesson${i}/index.html`
+              group.appendChild(a)
+            }
+            lessonsEl.appendChild(group)
+            // highlight this label as selected
+            label.classList.add('selected')
+          } else {
+            // remove group's lessons and selection highlight
+            const existing = lessonsEl.querySelector(`.lesson-group[data-level="${level}"]`)
+            if(existing) existing.remove()
+            label.classList.remove('selected')
+          }
+        })
+
+        wrapper.appendChild(cb)
+        wrapper.appendChild(label)
+        levelsEl.appendChild(wrapper)
+      }
+    </script>
+  </body>
+</html>
