@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HSK1 Lesson 2 review quiz: test your Chinese comprehension, vocabulary, and phrase usage from the 我叫李文 lesson.">
+    <meta name="keywords" content="HSK1 review, Chinese quiz, 我叫李文 review, Mandarin practice, HSK lesson 2">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Lesson 2 Chinese Review & Quiz — HSK1 Practice">
+    <meta property="og:description" content="Practice HSK1 Lesson 2 with a review quiz covering Chinese phrases, vocabulary, and reading comprehension.">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5742837209550679" crossorigin="anonymous"></script>
+    <title>Lesson 2 Chinese Review & Quiz</title>
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --dark-red: #b71c1c;
+            --bg-light: #fbf9f5;
+            --card-bg: #ffffff;
+            --peach-bg: #fff3e0;
+            --peach-border: #ffe0b2;
+            --text-dark: #2c3e50;
+            --border-color: #e0e0e0;
+            --correct-green: #2e7d32;
+            --correct-bg: #e8f5e9;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Top Banner */
+        .lesson-banner {
+            display: flex;
+            background-color: var(--primary-red);
+            color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .lesson-number-box {
+            background-color: white;
+            color: var(--primary-red);
+            padding: 15px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .lesson-tag {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .lesson-num {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-top: 5px;
+        }
+
+        .lesson-title-box {
+            padding: 15px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .lesson-title-pinyin {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .lesson-title-zh {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .lesson-title-en {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Section Container */
+        .review-section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Quiz Styling */
+        .quiz-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .question-title {
+            font-weight: bold;
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            color: var(--dark-red);
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .option-item {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            background-color: #fafafa;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-item:hover {
+            background-color: #f0f0f0;
+            border-color: #bbb;
+        }
+
+        .option-item.correct {
+            background-color: var(--correct-bg);
+            border-color: var(--correct-green);
+            color: var(--text-dark);
+        }
+
+        .option-item.incorrect {
+            background-color: #ffebee;
+            border-color: #d32f2f;
+            color: #b71c1c;
+        }
+
+        .explanation.hidden { display: none; }
+
+        .feedback {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        .feedback.correct { color: var(--correct-green); }
+        .feedback.incorrect { color: var(--primary-red); }
+
+        .explanation {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: var(--correct-bg);
+            border-left: 4px solid var(--correct-green);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #1b5e20;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-red);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="lesson-banner">
+        <div class="lesson-number-box">
+            <span class="lesson-tag">Lesson</span>
+            <span class="lesson-num">2</span>
+        </div>
+        <div class="lesson-title-box">
+            <div class="lesson-title-pinyin">Wǒ jiào Lǐ Wén</div>
+            <div class="lesson-title-zh">我叫李文</div>
+            <div class="lesson-title-en">My name is Li Wen — Full Review & Quiz</div>
+        </div>
+    </div>
+
+    <!-- Review Quiz Section -->
+    <section class="review-section">
+        <div class="section-title">10-Question Review Quiz (复习测验)</div>
+
+        <!-- Q1 -->
+        <div class="quiz-card">
+            <div class="question-title">1. How do you politely ask someone "May I ask, what is your name?" in Chinese?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. 你是安妮吗？(Nǐ shì Ānnī ma?)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">B. 请问，你叫什么名字？(Qǐngwèn, nǐ jiào shénme míngzi?)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">C. 很高兴认识你！(Hěn gāoxìng rènshi nǐ!)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. 你好，我是李文。(Nǐ hǎo, wǒ shì Lǐ Wén.)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: B. 请问，你叫什么名字？</strong> "请问" (May I ask) is a polite expression used before asking a question like "你叫什么名字？" (What is your name?).</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-card">
+            <div class="question-title">2. What is the standard response to "对不起" (duìbuqǐ - sorry)?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. 不客气 (bú kèqi)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">B. 没关系 (méi guānxi)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">C. 我也是 (wǒ yě shì)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. 很高兴 (hěn gāoxìng)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: B. 没关系 (méi guānxi).</strong> "没关系" (or colloquial "没事") means "That's all right / No problem" and is used to answer "对不起".</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-card">
+            <div class="question-title">3. What is the basic word order in standard Chinese sentence structure?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. Subject + Object + Verb</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">B. Subject + Predicate/Verb + Object</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">C. Verb + Subject + Object</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. Object + Subject + Verb</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: B. Subject + Predicate/Verb + Object.</strong> As explained in Xiaoyu's Classroom, Chinese follows Subject + Predicate + Object (e.g., 我 [S] 叫 [V] 陈天中 [O]).</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-card">
+            <div class="question-title">4. How do you express "I am not Annie" in Chinese using the negative adverbs?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. 我没安妮。(Wǒ méi Ānnī.)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">B. 我不是安妮。(Wǒ bù shì Ānnī.)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">C. 我叫安妮。(Wǒ jiào Ānnī.)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. 我不叫是安妮。(Wǒ bù jiào shì Ānnī.)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: B. 我不是安妮。(Wǒ bù shì Ānnī.)</strong> "不" (bù) negates verbs like "是" (shì) to mean "am not / is not".</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-card">
+            <div class="question-title">5. What is the correct structure of a traditional Chinese name?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="true">A. Surname + Given Name (e.g., Lǐ + Wén)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">B. Given Name + Surname (e.g., Wén + Lǐ)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">C. Middle Name + Surname + Given Name</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. Title + Given Name + Surname</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: A. Surname + Given Name.</strong> Chinese names always put the family surname first, followed by the given name (e.g., 李 [Surname] 文 [Given name]).</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-card">
+            <div class="question-title">6. What does the sentence "认识你我也很高兴" (Rènshi nǐ wǒ yě hěn gāoxìng) mean?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. What is your name?</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">B. I am very happy to meet your teacher.</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">C. Nice to meet you too.</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. Sorry, I don't know you.</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: C. Nice to meet you too.</strong> "也" (yě) means "also / too", making this sentence the standard response to "很高兴认识你".</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-card">
+            <div class="question-title">7. Which character means "also / too" in Chinese?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. 很 (hěn)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">B. 也 (yě)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">C. 是 (shì)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. 不 (bù)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: B. 也 (yě).</strong> "也" is an adverb meaning "also" or "too".</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-card">
+            <div class="question-title">8. In colloquial spoken Chinese, what is an alternative way to say "没关系" (méi guānxi)?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. 请问 (qǐngwèn)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">B. 对不起 (duìbuqǐ)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">C. 没事 / 没事儿 (méishì / méishìr)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. 很高兴 (hěn gāoxìng)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: C. 没事 / 没事儿.</strong> As noted in Xiaoyu's Tip, people often say "没事" or "没事儿" in informal spoken Chinese.</div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-card">
+            <div class="question-title">9. In the tongue twister from Lesson 2: "七加一，再减一，加完减完等于几？", what is the final answer?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. 六 (6)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">B. 七 (7)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">C. 八 (8)</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. 一 (1)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: B. 七 (7).</strong> "加完减完还是七" (After adding and subtracting, it's still seven).</div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-card">
+            <div class="question-title">10. What does the question pronoun "什么" (shénme) mean?</div>
+            <ul class="options-list">
+                <li class="option-item" role="button" tabindex="0" data-correct="false">A. Who</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">B. Where</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="true">C. What</li>
+                <li class="option-item" role="button" tabindex="0" data-correct="false">D. How</li>
+            </ul>
+            <div class="explanation hidden"><strong>Correct Answer: C. What.</strong> "什么" is used to ask "what" (e.g., 什么名字 = what name).</div>
+        </div>
+
+    </section>
+
+    <p style="display:flex; justify-content:space-between; align-items:center;">
+        <a class="btn" href="index.html">← Back to Lesson 2</a>
+        <a class="btn" href="../lesson3/index.html">Next Lesson →</a>
+    </p>
+
+    <script>
+        document.querySelectorAll('.quiz-card').forEach(card => {
+            const options = Array.from(card.querySelectorAll('.option-item'));
+            const explanation = card.querySelector('.explanation');
+            let answered = false;
+
+            function handleSelection(opt) {
+                if (answered) return;
+                answered = true;
+                const isCorrect = opt.dataset.correct === 'true';
+                if (isCorrect) {
+                    opt.classList.add('correct');
+                } else {
+                    opt.classList.add('incorrect');
+                    const corr = card.querySelector('.option-item[data-correct="true"]');
+                    if (corr) corr.classList.add('correct');
+                }
+                options.forEach(o => o.style.pointerEvents = 'none');
+                if (explanation) explanation.classList.remove('hidden');
+                const fb = document.createElement('div');
+                fb.className = 'feedback ' + (isCorrect ? 'correct' : 'incorrect');
+                fb.textContent = isCorrect ? 'Correct!' : 'Incorrect';
+                card.appendChild(fb);
+            }
+
+            options.forEach(opt => {
+                opt.addEventListener('click', () => handleSelection(opt));
+                opt.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleSelection(opt);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

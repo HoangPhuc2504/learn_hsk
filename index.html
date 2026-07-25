@@ -3,7 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>HSK 3.0</title>
+    <title>HSK 3.0 — Free Chinese HSK Lessons (HSK1–HSK6)</title>
+    <meta name="description" content="HSK 3.0 offers free Mandarin Chinese HSK lessons for levels 1 through 6. Browse lessons by level, open review pages, and access audio practice materials instantly.">
+    <meta name="keywords" content="HSK, Chinese learning, HSK lessons, HSK1, HSK2, HSK3, HSK4, HSK5, HSK6, Mandarin study, free Chinese lessons">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="HSK 3.0 — Free Chinese HSK Lessons (HSK1–HSK6)">
+    <meta property="og:description" content="Browse free Mandarin HSK lessons by level and lesson number, with review exercises and audio resources for beginner to advanced learners.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
     <link rel="stylesheet" href="css/styles.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5742837209550679" crossorigin="anonymous"></script>
   </head>
@@ -11,6 +18,7 @@
     <header class="site-header">
       <h1>HSK 3.0</h1>
       <p class="subtitle">Choose a level and lesson (HSK1–HSK6)</p>
+      <p class="intro">Select your HSK level to open free Chinese lessons for vocabulary, grammar, review practice, and audio support.</p>
     </header>
 
     <main class="container">
@@ -92,7 +100,7 @@
               const a = document.createElement('a')
               a.className = 'card'
               a.textContent = `HSK${level} — Lesson ${i}`
-              a.href = (level==='1' && i===1) ? `hsk1/lesson1/index.html` : `hsk${level}/lesson${i}/index.html`
+              a.href = `hsk${level}/lesson${i}/index.html`
               group.appendChild(a)
             }
             lessonsEl.appendChild(group)
