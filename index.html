@@ -12,27 +12,181 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+      :root {
+        --hero-dark: #b71c1c;
+        --hero-light: #f44336;
+        --surface-soft: #fff8f2;
+        --surface-strong: #ffffff;
+        --border-soft: #f7e5dc;
+        --text-muted: #5e6571;
+      }
+
+      .hero-banner {
+        background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.25), transparent 40%), linear-gradient(135deg, var(--hero-dark), var(--hero-light));
+        color: white;
+        border-radius: 24px;
+        padding: 36px 24px;
+        box-shadow: 0 26px 80px rgba(0, 0, 0, 0.16);
+        margin-bottom: 24px;
+      }
+
+      .hero-banner h1 {
+        margin: 0 0 14px;
+        font-size: clamp(2rem, 3vw, 3rem);
+        letter-spacing: 0.02em;
+      }
+
+      .hero-banner p {
+        margin: 0;
+        max-width: 760px;
+        line-height: 1.75;
+        opacity: 0.92;
+      }
+
+      .hero-actions {
+        margin-top: 22px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero-actions .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 22px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.16);
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      .hero-actions .button:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.22);
+      }
+
+      .intro {
+        max-width: 740px;
+        margin: 8px auto 0;
+        opacity: 0.9;
+      }
+
+      .card-section {
+        background: var(--surface-strong);
+        border-radius: 24px;
+        padding: 26px 22px;
+        margin-bottom: 22px;
+        box-shadow: 0 20px 50px rgba(16, 24, 40, 0.05);
+        border: 1px solid var(--border-soft);
+      }
+
+      .card-section h2 {
+        margin-top: 0;
+        font-size: 1.4rem;
+        letter-spacing: 0.01em;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .card {
+        min-height: 82px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 1rem;
+        padding: 18px 16px;
+        border-radius: 18px;
+        border: 1px solid #f0f0f5;
+        box-shadow: 0 16px 30px rgba(16, 24, 40, 0.04);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        background: var(--surface-soft);
+        color: #23304a;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 32px rgba(16, 24, 40, 0.1);
+      }
+
+      .card.selected {
+        border-color: rgba(211, 47, 47, 0.24);
+        background: linear-gradient(180deg, rgba(211, 47, 47, 0.08), rgba(255, 255, 255, 0.95));
+      }
+
+      .lesson-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 14px;
+        margin-top: 16px;
+      }
+
+      .note-card {
+        grid-column: 1 / -1;
+        background: #fff7f1;
+        color: var(--text-muted);
+        border-color: #f4d6c6;
+        box-shadow: none;
+        font-size: 0.97rem;
+      }
+
+      .ad-section {
+        text-align: center;
+      }
+
+      .site-footer {
+        text-align: center;
+        margin-bottom: 34px;
+        color: #606975;
+      }
+
+      @media (max-width: 640px) {
+        .hero-banner { padding: 24px 18px; }
+        .card-section { padding: 22px 18px; }
+        .hero-actions { flex-direction: column; align-items: stretch; }
+      }
+    </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5742837209550679" crossorigin="anonymous"></script>
   </head>
   <body>
     <header class="site-header">
-      <h1>HSK 3.0</h1>
+      <div class="hero-banner">
+        <div>
+          <h1>HSK 3.0 — Free Chinese Lessons</h1>
+          <p>Beautiful, beginner-friendly Chinese lessons with HSK levels 1 through 6. Explore vocabulary, review practice, audio support and polished lesson pages.</p>
+          <div class="hero-actions">
+            <a href="hsk1/lesson1/index.html" class="button">Start HSK1 Lesson 1</a>
+            <a href="#levels" class="button">Choose a level</a>
+          </div>
+        </div>
+      </div>
       <p class="subtitle">Choose a level and lesson (HSK1–HSK6)</p>
       <p class="intro">Select your HSK level to open free Chinese lessons for vocabulary, grammar, review practice, and audio support.</p>
     </header>
 
     <main class="container">
-      <section class="card-section">
-        <h2>Select Level</h2>
-        <div id="levels" class="cards"></div>
+      <section class="card-section" id="levels-section">
+        <h2 id="levels">Pick a level</h2>
+        <div class="cards" id="levels"></div>
+        <div class="card note-card">Tap a level to reveal its lesson pages. Use the sample link above to open the polished HSK1 Lesson 1 page.</div>
       </section>
 
       <section class="card-section">
         <h2>Lessons</h2>
-        <div id="lessons" class="cards"></div>
+        <div id="lessons" class="lesson-group"></div>
       </section>
 
-      <section class="ad-section">
+      <section class="card-section ad-section">
         <h2>Sponsored</h2>
         <ins class="adsbygoogle"
              style="display:block"
@@ -47,17 +201,15 @@
     </main>
 
     <footer class="site-footer">
-      <p>Click a lesson to open it.</p>
+      <p>Click a lesson card to open lesson content in a new page.</p>
     </footer>
 
     <script>
       const levelsEl = document.getElementById('levels')
       const lessonsEl = document.getElementById('lessons')
 
-      // create level checkboxes HSK1..HSK6; checking shows lessons, unchecking hides them
-      for(let l=1;l<=6;l++){
+      for (let l = 1; l <= 6; l++) {
         const wrapper = document.createElement('div')
-        wrapper.style.display = 'inline-block'
         wrapper.style.position = 'relative'
 
         const cb = document.createElement('input')
@@ -69,48 +221,41 @@
         const label = document.createElement('label')
         label.className = 'card'
         label.htmlFor = cb.id
-        label.textContent = 'HSK' + l
+        label.innerHTML = `<strong>HSK${l}</strong><span class="meta">Level ${l} lessons</span>`
 
-        // toggle lessons group when checkbox changes
-        cb.addEventListener('change', (e)=>{
+        cb.addEventListener('change', (e) => {
           const level = e.target.dataset.level
-          // when checked, uncheck others and remove their groups
-          if(e.target.checked){
-            // uncheck other checkboxes and remove their groups
+          const activeLabel = levelsEl.querySelector(`label[for="level-${level}"]`)
+
+          if (e.target.checked) {
             const others = levelsEl.querySelectorAll('input[type="checkbox"]')
-            others.forEach(o=>{
-              if(o !== e.target && o.checked){
+            others.forEach((o) => {
+              if (o !== e.target && o.checked) {
                 o.checked = false
                 const existing = lessonsEl.querySelector(`.lesson-group[data-level="${o.dataset.level}"]`)
-                if(existing) existing.remove()
+                if (existing) existing.remove()
               }
             })
-            // remove selected class from all labels
-            levelsEl.querySelectorAll('label.card').forEach(l=>l.classList.remove('selected'))
+            levelsEl.querySelectorAll('label.card').forEach((item) => item.classList.remove('selected'))
 
             const group = document.createElement('div')
             group.className = 'lesson-group'
             group.dataset.level = level
-            group.style.width = '100%'
-            group.style.display = 'flex'
-            group.style.flexWrap = 'wrap'
-            group.style.gap = '8px'
 
-            for(let i=1;i<=20;i++){
+            for (let i = 1; i <= 20; i++) {
               const a = document.createElement('a')
               a.className = 'card'
               a.textContent = `HSK${level} — Lesson ${i}`
               a.href = `hsk${level}/lesson${i}/index.html`
               group.appendChild(a)
             }
+            lessonsEl.innerHTML = ''
             lessonsEl.appendChild(group)
-            // highlight this label as selected
-            label.classList.add('selected')
+            activeLabel.classList.add('selected')
           } else {
-            // remove group's lessons and selection highlight
             const existing = lessonsEl.querySelector(`.lesson-group[data-level="${level}"]`)
-            if(existing) existing.remove()
-            label.classList.remove('selected')
+            if (existing) existing.remove()
+            if (activeLabel) activeLabel.classList.remove('selected')
           }
         })
 
