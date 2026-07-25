@@ -10,15 +10,10 @@ Resources included:
 - `css/styles.css` — site styling
 - `js/main.js` — interactive flashcards and quiz logic
 
-How to use:
-
-- Open `index.html` in your browser
-- Choose the HSK level and lesson you want to study
-- Progress from Level 1 up to Level 6
-
-Learn more and access the full HSK 3.0 study platform at:
+How to use:  access the full HSK 3.0 study platform at:
 
 https://learn-hsk-3-0.onrender.com/
+
 
 Next steps you might want:
 
