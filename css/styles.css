@@ -6,7 +6,7 @@
   --radius:10px;
 }
 *{box-sizing:border-box}
-body{font-family:Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0;line-height:1.45}
+body{font-family:Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0;line-height:1.45;padding-top:80px}
 .site-header{background:var(--accent);color:#fff;padding:28px 16px;text-align:center}
 .site-header h1{margin:0;font-size:1.6rem}
 .subtitle{opacity:.95;margin:6px 0 0}

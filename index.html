@@ -186,15 +186,17 @@
       }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5742837209550679" crossorigin="anonymous"></script>
+    <!-- <script src="js/header-loader.js" defer></script> -->
   </head>
   <body>
+    <div id="shared-header" data-root="./"></div>
     <header class="site-header">
       <div class="hero-banner">
         <div>
           <h1>HSK 3.0 — Free Chinese Lessons</h1>
           <p>Beautiful, beginner-friendly Chinese lessons with HSK levels 1 through 6. Explore vocabulary, review practice, audio support and polished lesson pages.</p>
           <div class="hero-actions">
-            <a href="hsk1/lesson1/index.html" class="button">Start HSK1 Lesson 1</a>
+            <a href="hsk1/lesson1/content.html" class="button">Start HSK1 Lesson 1</a>
             <a href="#levels" class="button">Choose a level</a>
           </div>
         </div>
@@ -264,7 +266,7 @@
           const a = document.createElement('a')
           a.className = 'card'
           a.textContent = `HSK${level} — Lesson ${i}`
-          a.href = `hsk${level}/lesson${i}/index.html`
+          a.href = `hsk${level}/lesson${i}/content.html`
           group.appendChild(a)
         }
 

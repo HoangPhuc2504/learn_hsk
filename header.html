@@ -1,0 +1,88 @@
+<nav class="page-header" aria-label="Site navigation">
+  <a class="nav-home" href="[[ROOT]]index.html">Home</a>
+</nav>
+<style>
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: #1f2937;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+}
+.nav-home {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 10px 16px;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+.nav-home:hover,
+.nav-home:focus {
+  background: rgba(255,255,255,0.12);
+}
+.nav-dropdowns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, auto));
+  gap: 12px;
+  width: 100%;
+  max-width: 760px;
+}
+.nav-dropdown {
+  position: relative;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 12px;
+  padding: 4px 8px;
+}
+.nav-summary {
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 8px;
+  color: #fff;
+  font-weight: 700;
+  background: transparent;
+}
+.nav-panel {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+  padding: 10px 8px 12px;
+  background: #f8fafc;
+  border-radius: 10px;
+  border: 1px solid rgba(31,41,55,0.08);
+}
+.nav-link {
+  display: block;
+  text-decoration: none;
+  color: #111827;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #ffffff;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.nav-link:hover,
+.nav-link:focus {
+  background: #e5e7eb;
+}
+.nav-link.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+@media (max-width: 800px) {
+  .nav-dropdowns {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
