@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>HSK 3.0 — Free Chinese HSK Lessons (HSK1–HSK6)</title>
-    <meta name="description" content="HSK 3.0 offers free Mandarin Chinese HSK lessons for levels 1 through 6. Browse lessons by level, open review pages, and access audio practice materials instantly.">
-    <meta name="keywords" content="HSK, Chinese learning, HSK lessons, HSK1, HSK2, HSK3, HSK4, HSK5, HSK6, Mandarin study, free Chinese lessons">
+    <title>HSK 3.0 — Bài học HSK tiếng Trung miễn phí (HSK1–HSK6)</title>
+    <meta name="description" content="HSK 3.0 cung cấp bài học HSK tiếng Trung miễn phí cho cấp độ 1 đến 6. Duyệt bài học theo cấp, mở trang ôn tập và nghe audio ngay lập tức.">
+    <meta name="keywords" content="HSK, học tiếng Trung, bài học HSK, HSK1, HSK2, HSK3, HSK4, HSK5, HSK6, học Mandarin, bài học miễn phí">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="HSK 3.0 — Free Chinese HSK Lessons (HSK1–HSK6)">
-    <meta property="og:description" content="Browse free Mandarin HSK lessons by level and lesson number, with review exercises and audio resources for beginner to advanced learners.">
+    <meta property="og:title" content="HSK 3.0 — Bài học HSK tiếng Trung miễn phí (HSK1–HSK6)">
+    <meta property="og:description" content="Duyệt bài học HSK tiếng Trung miễn phí theo cấp độ và số bài, với bài tập ôn và tài nguyên audio cho người mới đến nâng cao.">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:locale" content="vi_VN">
     <link rel="stylesheet" href="css/styles.css">
     <style>
       :root {
@@ -193,36 +193,36 @@
     <header class="site-header">
       <div class="hero-banner">
         <div>
-          <h1>HSK 3.0 — Free Chinese Lessons</h1>
-          <p>Beautiful, beginner-friendly Chinese lessons with HSK levels 1 through 6. Explore vocabulary, review practice, audio support and polished lesson pages.</p>
+          <h1>HSK 3.0 — Bài học tiếng Trung miễn phí</h1>
+          <p>Bài học tiếng Trung đẹp, thân thiện với người mới bắt đầu, từ HSK 1 đến HSK 6. Khám phá từ vựng, luyện tập ôn tập, audio hỗ trợ và trang bài học chuyên nghiệp.</p>
           <div class="hero-actions">
-            <a href="hsk1/lesson1/content.html" class="button">Start HSK1 Lesson 1</a>
-            <a href="#levels" class="button">Choose a level</a>
+            <a href="hsk1/lesson1/content.html" class="button">Bắt đầu HSK1 Bài 1</a>
+            <a href="#levels" class="button">Chọn cấp</a>
           </div>
         </div>
       </div>
-      <p class="subtitle">Choose a level and lesson (HSK1–HSK6)</p>
-      <p class="intro">Select your HSK level to open free Chinese lessons for vocabulary, grammar, review practice, and audio support.</p>
+      <p class="subtitle">Chọn cấp và bài học (HSK1–HSK6)</p>
+      <p class="intro">Chọn cấp HSK để mở các bài học tiếng Trung miễn phí với từ vựng, ngữ pháp, ôn tập và audio.</p>
     </header>
 
     <main class="container">
       <section class="card-section" id="levels-section">
-        <h2 id="levels">Pick a level</h2>
-        <label for="level-select">Select an HSK level</label>
-        <select id="level-select" class="level-select" aria-label="Select an HSK level">
-          <option value="">Choose an HSK level</option>
+        <h2 id="levels">Chọn cấp</h2>
+        <label for="level-select">Chọn cấp HSK</label>
+        <select id="level-select" class="level-select" aria-label="Chọn cấp HSK">
+          <option value="">Chọn một cấp HSK</option>
         </select>
         <div style="height: 30px;"></div>
-        <div class="note-card" style="text-align: center; height: 50px; ">Choose a level from the dropdown to reveal its lesson pages. </div>
+        <div class="note-card" style="text-align: center; height: 50px; ">Chọn một cấp từ danh sách để hiển thị các trang bài học.</div>
       </section>
 
       <section class="card-section">
-        <h2>Lessons</h2>
+        <h2>Bài học</h2>
         <div id="lessons" class="lesson-group"></div>
       </section>
 
       <section class="card-section ad-section">
-        <h2>Sponsored</h2>
+        <h2>Được tài trợ</h2>
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-5742837209550679"
@@ -236,7 +236,7 @@
     </main>
 
     <footer class="site-footer">
-      <p>Click a lesson card to open lesson content in a new page.</p>
+      <p>Nhấp vào thẻ bài học để mở nội dung bài học trong trang mới.</p>
     </footer>
 
     <script>
@@ -265,7 +265,7 @@
         for (let i = 1; i <= 20; i++) {
           const a = document.createElement('a')
           a.className = 'card'
-          a.textContent = `HSK${level} — Lesson ${i}`
+          a.textContent = `HSK${level} — Bài học ${i}`
           a.href = `hsk${level}/lesson${i}/content.html`
           group.appendChild(a)
         }
