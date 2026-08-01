@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5742837209550679" crossorigin="anonymous"></script>
+    <title>Bài 4 - Bộ 10 Câu Hỏi Trắc Nghiệm Ôn Tập HSK1</title>
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --dark-red: #b71c1c;
+            --bg-light: #fbf9f5;
+            --card-bg: #ffffff;
+            --text-dark: #2c3e50;
+            --border-color: #e0e0e0;
+            --correct-green: #2e7d32;
+            --correct-bg: #e8f5e9;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Banner */
+        .lesson-banner {
+            display: flex;
+            background-color: var(--primary-red);
+            color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .lesson-number-box {
+            background-color: white;
+            color: var(--primary-red);
+            padding: 15px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lesson-tag {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .lesson-num {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-top: 5px;
+        }
+
+        .lesson-title-box {
+            padding: 15px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .lesson-title-pinyin { font-size: 1rem; opacity: 0.9; }
+        .lesson-title-zh { font-size: 1.8rem; font-weight: bold; letter-spacing: 1px; }
+        .lesson-title-en { font-size: 1rem; opacity: 0.95; }
+
+        /* Section */
+        .review-section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Quiz Styling */
+        .quiz-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .question-title {
+            font-weight: bold;
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            color: var(--dark-red);
+        }
+
+        .options-list { list-style: none; padding: 0; margin: 0; }
+
+        .option-item {
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            background-color: #fafafa;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-item:hover { background-color: #f0f0f0; border-color: #bbb; }
+
+        .option-item.correct {
+            background-color: var(--correct-bg);
+            border-color: var(--correct-green);
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .option-item.incorrect {
+            background-color: #ffebee;
+            border-color: #d32f2f;
+            color: #b71c1c;
+        }
+
+        .explanation.hidden { display: none; }
+
+        .feedback { margin-top: 10px; font-weight: bold; }
+        .feedback.correct { color: var(--correct-green); }
+        .feedback.incorrect { color: var(--primary-red); }
+
+        .explanation {
+            margin-top: 10px;
+            padding: 12px;
+            background-color: var(--correct-bg);
+            border-left: 4px solid var(--correct-green);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: #1b5e20;
+        }
+
+        .answer-key-box {
+            background-color: #e3f2fd;
+            border: 1px solid #90caf9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-red);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Banner -->
+    <div class="lesson-banner">
+        <div class="lesson-number-box">
+            <span class="lesson-tag">Bài</span>
+            <span class="lesson-num">4</span>
+        </div>
+        <div class="lesson-title-box">
+            <div class="lesson-title-pinyin">Wǒ yǒu liǎng gè háizi</div>
+            <div class="lesson-title-zh">我有两个孩子</div>
+            <div class="lesson-title-en">Tôi có hai người con</div>
+        </div>
+    </div>
+
+    <section class="review-section">
+        <div class="section-title">Trắc Nghiệm Ôn Tập HSK1 - Bài 4 (复习测验)</div>
+        
+
+        <!-- Q1: D -->
+        <div class="quiz-card">
+            <div class="question-title">1. Để hỏi số lượng sinh viên của một giáo viên (thường là số lượng lớn), đại từ nghi vấn nào được sử dụng trong bài 1?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. 几 (jǐ)</li>
+                <li class="option-item" data-correct="false">B. 岁 (suì)</li>
+                <li class="option-item" data-correct="false">C. 呢 (ne)</li>
+                <li class="option-item" data-correct="true">D. 多少 (duōshao)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: D. 多少 (duōshao).</strong> Trong bài khóa 1, Lưu Minh hỏi: "她有多少个学生？" (Cô ấy có bao nhiêu học sinh?).</div>
+        </div>
+
+        <!-- Q2: D -->
+        <div class="quiz-card">
+            <div class="question-title">2. Lượng từ nào sau đây chuyên dùng cho các thành viên trong gia đình (ví dụ: Nhà tôi có 4 người)?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. 个 (gè)</li>
+                <li class="option-item" data-correct="false">B. 岁 (suì)</li>
+                <li class="option-item" data-correct="false">C. 本 (běn)</li>
+                <li class="option-item" data-correct="true">D. 口 (kǒu)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: D. 口 (kǒu).</strong> "口" là lượng từ dùng để đếm nhân khẩu trong gia đình (như "四口人").</div>
+        </div>
+
+        <!-- Q3: C -->
+        <div class="quiz-card">
+            <div class="question-title">3. Khi số "2" đứng trước một lượng từ để chỉ số lượng (ví dụ: 2 người), chúng ta phải đọc là gì?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. 二 (èr)</li>
+                <li class="option-item" data-correct="false">B. 二个 (èr gè)</li>
+                <li class="option-item" data-correct="true">C. 两 (liǎng)</li>
+                <li class="option-item" data-correct="false">D. 第二 (dì-èr)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: C. 两 (liǎng).</strong> Trước lượng từ, số 2 dùng "两" (ví dụ: 两个人, 两本书).</div>
+        </div>
+
+        <!-- Q4: A -->
+        <div class="quiz-card">
+            <div class="question-title">4. Trợ từ ngữ khí "呢" (ne) trong cấu trúc "A..., B 呢？" dùng để làm gì?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="true">A. Hỏi về tình huống đã được đề cập trước đó ở vế A</li>
+                <li class="option-item" data-correct="false">B. Phủ định hành động của chủ ngữ B</li>
+                <li class="option-item" data-correct="false">C. Hỏi về họ tên của người khác</li>
+                <li class="option-item" data-correct="false">D. Biểu thị sự ngạc nhiên</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: A.</strong> "呢" dùng để hỏi ngược lại hoặc hỏi về thông tin tương tự đã nhắc tới (ví dụ: 我有两个哥哥，你呢？).</div>
+        </div>
+
+        <!-- Q5: C -->
+        <div class="quiz-card">
+            <div class="question-title">5. Theo mẹo của Tiểu Ngữ, khi hỏi tuổi của trẻ em (thường là dưới 10 tuổi), ta nên dùng câu nào?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. 你多大？(Nǐ duō dà?)</li>
+                <li class="option-item" data-correct="false">B. 你多少岁？(Nǐ duōshao suì?)</li>
+                <li class="option-item" data-correct="true">C. 你几岁？(Nǐ jǐ suì?)</li>
+                <li class="option-item" data-correct="false">D. 你是大孩子吗？(Nǐ shì dà háizi ma?)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: C. 你几岁？</strong> Dưới 10 tuổi dùng "几岁", trên 10 tuổi dùng "多大".</div>
+        </div>
+
+        <!-- Q6: C -->
+        <div class="quiz-card">
+            <div class="question-title">6. Số 208 được viết bằng chữ Hán như thế nào trong tiếng Trung?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. 二百八 (Èrbǎi bā)</li>
+                <li class="option-item" data-correct="false">B. 二百八十 (Èrbǎi bāshí)</li>
+                <li class="option-item" data-correct="true">C. 二百零八 (Èrbǎi líng bā)</li>
+                <li class="option-item" data-correct="false">D. 二百零 (Èrbǎi líng)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: C. 二百零八.</strong> Khi có số 0 ở giữa hàng trăm và hàng đơn vị, ta phải đọc là "零" (líng).</div>
+        </div>
+
+        <!-- Q7: B -->
+        <div class="quiz-card">
+            <div class="question-title">7. Dạng phủ định của động từ "有" (yǒu - có) là gì?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. 不有 (bù yǒu)</li>
+                <li class="option-item" data-correct="true">B. 没有 (méiyǒu)</li>
+                <li class="option-item" data-correct="false">C. 没是有 (méi shì yǒu)</li>
+                <li class="option-item" data-correct="false">D. 不 (bù)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: B. 没有 (méiyǒu).</strong> Phủ định của "有" luôn dùng "没", không dùng "不".</div>
+        </div>
+
+        <!-- Q8: B -->
+        <div class="quiz-card">
+            <div class="question-title">8. Trong bài đọc 2, gia đình của Dương Đồng Lạc (杨同乐) gồm những ai?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. Bố, mẹ, anh trai và tôi</li>
+                <li class="option-item" data-correct="true">B. Bố, mẹ, em gái và tôi</li>
+                <li class="option-item" data-correct="false">C. Bố, mẹ, chị gái và tôi</li>
+                <li class="option-item" data-correct="false">D. Chỉ có bố và mẹ</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: B.</strong> Dương Đồng Lạc nói: "...爸爸、妈妈、妹妹和我" (Bố, mẹ, em gái và tôi).</div>
+        </div>
+
+        <!-- Q9: D -->
+        <div class="quiz-card">
+            <div class="question-title">9. Từ "孩子" (háizi) trong tiêu đề "我有两个孩子" có nghĩa là gì?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. Học sinh</li>
+                <li class="option-item" data-correct="false">B. Bạn bè</li>
+                <li class="option-item" data-correct="false">C. Con trai</li>
+                <li class="option-item" data-correct="true">D. Con cái / Đứa trẻ</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: D. Con cái / Đứa trẻ.</strong> "孩子" là danh từ chung chỉ con cái (bao gồm cả con trai và con gái).</div>
+        </div>
+
+        <!-- Q10: A -->
+        <div class="quiz-card">
+            <div class="question-title">10. Cách viết và đọc số "1000" trong tiếng Trung là gì?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="true">A. 一千 (yìqiān)</li>
+                <li class="option-item" data-correct="false">B. 一百 (yìbǎi)</li>
+                <li class="option-item" data-correct="false">C. 一万 (yíwàn)</li>
+                <li class="option-item" data-correct="false">D. 十百 (shíbǎi)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: A. 一千 (yìqiān).</strong> "千" (qiān) là đơn vị hàng nghìn.</div>
+        </div>
+
+    </section>
+    <section class="card-section ad-section">
+        <h2>Tài trợ</h2>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5742837209550679"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+    <!-- Navigation Buttons -->
+    <p style="display:flex; justify-content:space-between; align-items:center;">
+        <a class="btn" href="content.html">← Quay lại Bài 4</a>
+        <a class="btn" href="../lesson5/content.html">Bài tiếp theo →</a>
+    </p>
+
+    <!-- Interactive JS -->
+    <script>
+        document.querySelectorAll('.quiz-card').forEach(card => {
+            const options = Array.from(card.querySelectorAll('.option-item'));
+            const explanation = card.querySelector('.explanation');
+            let answered = false;
+
+            function handleSelection(opt) {
+                if (answered) return;
+                answered = true;
+                const isCorrect = opt.dataset.correct === 'true';
+                if (isCorrect) {
+                    opt.classList.add('correct');
+                } else {
+                    opt.classList.add('incorrect');
+                    const corr = card.querySelector('.option-item[data-correct="true"]');
+                    if (corr) corr.classList.add('correct');
+                }
+                options.forEach(o => o.style.pointerEvents = 'none');
+                if (explanation) explanation.classList.remove('hidden');
+                const fb = document.createElement('div');
+                fb.className = 'feedback ' + (isCorrect ? 'correct' : 'incorrect');
+                fb.textContent = isCorrect ? '✓ Chính xác!' : '✗ Chưa chính xác';
+                card.appendChild(fb);
+            }
+
+            options.forEach(opt => {
+                opt.addEventListener('click', () => handleSelection(opt));
+            });
+        });
+    </script>
+</body>
+</html>
