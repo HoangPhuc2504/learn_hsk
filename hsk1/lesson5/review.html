@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5742837209550679" crossorigin="anonymous"></script>
+    <title>Bài 5 - Bộ 10 Câu Hỏi Trắc Nghiệm Ôn Tập HSK1</title>
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --dark-red: #b71c1c;
+            --bg-light: #fbf9f5;
+            --card-bg: #ffffff;
+            --text-dark: #2c3e50;
+            --border-color: #e0e0e0;
+            --correct-green: #2e7d32;
+            --correct-bg: #e8f5e9;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Banner */
+        .lesson-banner {
+            display: flex;
+            background-color: var(--primary-red);
+            color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .lesson-number-box {
+            background-color: white;
+            color: var(--primary-red);
+            padding: 15px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lesson-tag {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .lesson-num {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-top: 5px;
+        }
+
+        .lesson-title-box {
+            padding: 15px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .lesson-title-pinyin { font-size: 1rem; opacity: 0.9; }
+        .lesson-title-zh { font-size: 1.8rem; font-weight: bold; letter-spacing: 1px; }
+        .lesson-title-en { font-size: 1rem; opacity: 0.95; }
+
+        /* Section */
+        .review-section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Quiz Styling */
+        .quiz-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .question-title {
+            font-weight: bold;
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            color: var(--dark-red);
+        }
+
+        .options-list { list-style: none; padding: 0; margin: 0; }
+
+        .option-item {
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            background-color: #fafafa;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-item:hover { background-color: #f0f0f0; border-color: #bbb; }
+
+        .option-item.correct {
+            background-color: var(--correct-bg);
+            border-color: var(--correct-green);
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .option-item.incorrect {
+            background-color: #ffebee;
+            border-color: #d32f2f;
+            color: #b71c1c;
+        }
+
+        .explanation.hidden { display: none; }
+
+        .feedback { margin-top: 10px; font-weight: bold; }
+        .feedback.correct { color: var(--correct-green); }
+        .feedback.incorrect { color: var(--primary-red); }
+
+        .explanation {
+            margin-top: 10px;
+            padding: 12px;
+            background-color: var(--correct-bg);
+            border-left: 4px solid var(--correct-green);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: #1b5e20;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-red);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Banner -->
+    <div class="lesson-banner">
+        <div class="lesson-number-box">
+            <span class="lesson-tag">Bài</span>
+            <span class="lesson-num">5</span>
+        </div>
+        <div class="lesson-title-box">
+            <div class="lesson-title-pinyin">Jīntiān wǒ xiūxi</div>
+            <div class="lesson-title-zh">今天我休息</div>
+            <div class="lesson-title-en">Hôm nay tôi nghỉ phép</div>
+        </div>
+    </div>
+
+    <section class="review-section">
+        <div class="section-title">Trắc Nghiệm Ôn Tập HSK1 - Bài 5 (复习测验)</div>
+
+        <!-- Q1: D -->
+        <div class="quiz-card">
+            <div class="question-title">1. Thứ tự đúng khi biểu thị thời gian (ngày, tháng, thứ) trong tiếng Trung là gì?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. Thứ → Ngày → Tháng → Năm</li>
+                <li class="option-item" data-correct="false">B. Ngày → Tháng → Năm → Thứ</li>
+                <li class="option-item" data-correct="false">C. Tháng → Ngày → Năm → Thứ</li>
+                <li class="option-item" data-correct="true">D. Năm → Tháng → Ngày → Thứ</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: D. Năm → Tháng → Ngày → Thứ.</strong> Trong tiếng Trung, thời gian được diễn đạt từ đơn vị lớn đến đơn vị nhỏ (ví dụ: 2024年10月22号，星期二).</div>
+        </div>
+
+        <!-- Q2: A -->
+        <div class="quiz-card">
+            <div class="question-title">2. Trong Bài đọc 1, Lưu Minh (刘明) nói hôm nay là ngày mấy, tháng mấy?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="true">A. Ngày 8 tháng 9 (9月8号)</li>
+                <li class="option-item" data-correct="false">B. Ngày 9 tháng 8 (8月9号)</li>
+                <li class="option-item" data-correct="false">C. Ngày 1 tháng 5 (5月1号)</li>
+                <li class="option-item" data-correct="false">D. Ngày 22 tháng 5 (5月22号)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: A. Ngày 8 tháng 9.</strong> Khi Vương Nhất Tuyết hỏi, Lưu Minh trả lời: "今天9月8号。"</div>
+        </div>
+
+        <!-- Q3: C -->
+        <div class="quiz-card">
+            <div class="question-title">3. Động từ năng nguyện “会” (huì) trong Bài 5 dùng để diễn đạt điều gì?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. Biểu thị một hành động sắp xảy ra trong tương lai</li>
+                <li class="option-item" data-correct="false">B. Xin phép hoặc cho phép ai làm điều gì</li>
+                <li class="option-item" data-correct="true">C. Biết làm việc gì đó thông qua học tập/rèn luyện</li>
+                <li class="option-item" data-correct="false">D. Biểu thị sự bắt buộc phải hoàn thành nhiệm vụ</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: C.</strong> “会” dùng trước động từ biểu thị thông qua học tập mà biết hoặc có năng lực làm gì (ví dụ: 我会做饭)</div>
+        </div>
+
+        <!-- Q4: C -->
+        <div class="quiz-card">
+            <div class="question-title">4. Trong Bài đọc 2, Dương Đồng Lạc (杨同乐) biết làm những món ăn nào?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. Chỉ biết nấu cơm trứng chiên</li>
+                <li class="option-item" data-correct="false">B. Chỉ biết làm bánh bao</li>
+                <li class="option-item" data-correct="true">C. Biết làm mì sợi, há cảo và một số món ăn khác</li>
+                <li class="option-item" data-correct="false">D. Anh ấy không biết nấu ăn</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: C.</strong> Dương Đồng Lạc nói: "我会做面条儿、饺子，也会做一些菜。"</div>
+        </div>
+
+        <!-- Q5: B -->
+        <div class="quiz-card">
+            <div class="question-title">5. Từ "它" (tā) trong Bài đọc 3 dùng để chỉ đối tượng nào?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. Vương Nhất Tuyết (người nữ)</li>
+                <li class="option-item" data-correct="true">B. Chiếc máy tính mới của Dương Đồng Lạc</li>
+                <li class="option-item" data-correct="false">C. Công ty nơi làm việc</li>
+                <li class="option-item" data-correct="false">D. Bữa ăn tối</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: B.</strong> Đại từ "它" thay thế cho đồ vật, ở đây là chiếc máy tính mới (新电脑).</div>
+        </div>
+
+        <!-- Q6: A -->
+        <div class="quiz-card">
+            <div class="question-title">6. Câu nào sau đây là câu vị ngữ danh từ (名词谓语句) đúng cấu trúc?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="true">A. 今天 5月1号。</li>
+                <li class="option-item" data-correct="false">B. 我喜欢电脑。</li>
+                <li class="option-item" data-correct="false">C. 他在公司下班。</li>
+                <li class="option-item" data-correct="false">D. 我很休息。</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: A. 今天 5月1号。</strong> Vị ngữ chỉ gồm danh từ/cụm danh từ chỉ thời gian, ngày tháng, tuổi tác... mà không cần dùng động từ "是".</div>
+        </div>
+
+        <!-- Q7: A -->
+        <div class="quiz-card">
+            <div class="question-title">7. Trong giao tiếp hàng ngày, từ nào thường dùng trong văn nói để chỉ "ngày" (ví dụ: ngày 8)?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="true">A. 号 (hào)</li>
+                <li class="option-item" data-correct="false">B. 日 (rì)</li>
+                <li class="option-item" data-correct="false">C. 月 (yuè)</li>
+                <li class="option-item" data-correct="false">D. 年 (nián)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: A. 号 (hào).</strong> "号" được dùng phổ biến trong văn nói, còn "日" thường dùng trong văn viết.</div>
+        </div>
+
+        <!-- Q8: C -->
+        <div class="quiz-card">
+            <div class="question-title">8. "Thứ Bảy" trong tiếng Trung được nói như thế nào?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. 星期七 (Xīngqīqī)</li>
+                <li class="option-item" data-correct="false">B. 星期五 (Xīngqīwǔ)</li>
+                <li class="option-item" data-correct="true">C. 星期六 (Xīngqīliù)</li>
+                <li class="option-item" data-correct="false">D. 星期天 (Xīngqītiān)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: C. 星期六 (Xīngqīliù).</strong> Các thứ trong tuần từ Thứ Hai đến Thứ Bảy đếm theo số từ 1 (一) đến 6 (六).</div>
+        </div>
+
+        <!-- Q9: C -->
+        <div class="quiz-card">
+            <div class="question-title">9. Chọn từ thích hợp điền vào chỗ trống: "王一雪：你的电脑 ____ 好看！"</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. 新 (xīn)</li>
+                <li class="option-item" data-correct="false">B. 菜 (cài)</li>
+                <li class="option-item" data-correct="true">C. 真 (zhēn)</li>
+                <li class="option-item" data-correct="false">D. 会 (huì)</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: C. 真 (zhēn).</strong> Phó từ "真" đi trước tính từ để khen ngợi/cảm thán: "真好看" (Thật là đẹp!)</div>
+        </div>
+
+        <!-- Q10: D -->
+        <div class="quiz-card">
+            <div class="question-title">10. Hai cách nói "Chủ nhật" trong tiếng Trung là gì?</div>
+            <ul class="options-list">
+                <li class="option-item" data-correct="false">A. 星期一 và 星期二</li>
+                <li class="option-item" data-correct="false">B. 星期六 và 星期七</li>
+                <li class="option-item" data-correct="false">C. 星期号 và 星期月</li>
+                <li class="option-item" data-correct="true">D. 星期日 và 星期天</li>
+            </ul>
+            <div class="explanation hidden"><strong>Đáp án đúng: D. 星期日 và 星期天.</strong> Chủ nhật trong tiếng Trung có thể dùng "星期日" hoặc "星期天".</div>
+        </div>
+
+    </section>
+
+    <section class="card-section ad-section">
+        <h2>Tài trợ</h2>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5742837209550679"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+
+    <!-- Navigation Buttons -->
+    <p style="display:flex; justify-content:space-between; align-items:center;">
+        <a class="btn" href="content.html">← Quay lại Bài 5</a>
+        <a class="btn" href="../lesson6/content.html">Bài tiếp theo →</a>
+    </p>
+
+    <!-- Interactive JS -->
+    <script>
+        document.querySelectorAll('.quiz-card').forEach(card => {
+            const options = Array.from(card.querySelectorAll('.option-item'));
+            const explanation = card.querySelector('.explanation');
+            let answered = false;
+
+            function handleSelection(opt) {
+                if (answered) return;
+                answered = true;
+                const isCorrect = opt.dataset.correct === 'true';
+                if (isCorrect) {
+                    opt.classList.add('correct');
+                } else {
+                    opt.classList.add('incorrect');
+                    const corr = card.querySelector('.option-item[data-correct="true"]');
+                    if (corr) corr.classList.add('correct');
+                }
+                options.forEach(o => o.style.pointerEvents = 'none');
+                if (explanation) explanation.classList.remove('hidden');
+                const fb = document.createElement('div');
+                fb.className = 'feedback ' + (isCorrect ? 'correct' : 'incorrect');
+                fb.textContent = isCorrect ? '✓ Chính xác!' : '✗ Chưa chính xác';
+                card.appendChild(fb);
+            }
+
+            options.forEach(opt => {
+                opt.addEventListener('click', () => handleSelection(opt));
+            });
+        });
+    </script>
+</body>
+</html>
